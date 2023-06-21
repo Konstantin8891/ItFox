@@ -11,10 +11,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.getenv('SECRET_KEY')
 
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['konstantin05.ddns.net', ]
-
+ALLOWED_HOSTS = ['konstantin05.ddns.net', '158.160.6.228']
 
 INSTALLED_APPS = [
     'users.apps.UsersConfig',
