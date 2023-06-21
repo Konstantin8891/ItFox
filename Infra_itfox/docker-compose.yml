@@ -1,0 +1,21 @@
+version: '3.3'
+services:
+  db:
+    image: postgres:15
+    volumes:
+      - postgres_data:/var/lib/postgresql/data5/
+    ports:
+      - "5440:5432"
+    env_file:
+      - ../backend/.env
+  backend:
+    build: 
+      context: ../
+      dockerfile: ./backend/Dockerfile
+    ports:
+      - "8000:8000"
+    restart: always
+    depends_on:
+      - db
+volumes:
+  postgres_data:
