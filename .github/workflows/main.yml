@@ -39,7 +39,7 @@ jobs:
         with:
           context: ./backend
           push: true
-          tags: konstantin05/ItFox:latest
+          tags: konstantin05/itfox:latest
   deploy:
     runs-on: ubuntu-latest
     needs: build_and_push_to_docker_hub
