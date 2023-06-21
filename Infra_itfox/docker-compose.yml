@@ -4,16 +4,14 @@ services:
     image: postgres:15
     volumes:
       - postgres_data:/var/lib/postgresql/data5/
-    ports:
-      - "5440:5432"
     env_file:
       - ../backend/.env
   backend:
     build: 
       context: ../
       dockerfile: ./backend/Dockerfile
-    ports:
-      - "8000:8000"
+    expose:
+      - 8000
     restart: always
     volumes:
       - static_value:/app/static/
@@ -25,8 +23,7 @@ services:
       - "80:80"
     volumes:
       - ./nginx.conf:/etc/nginx/conf.d/default.conf
-      - ../frontend/build:/usr/share/nginx/html/
-      - static_value:/app/backend_static/
+      - static_value:/app/static/
     restart: always
 volumes:
   postgres_data:
