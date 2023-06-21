@@ -52,9 +52,9 @@ jobs:
         key: ${{ secrets.SSH_KEY }}
         passphrase: ${{ secrets.PASSPHRASE }}
         script: |
+          sudo docker system prune -f
           sudo docker pull konstantin05/ItFox:latest
           sudo docker-compose stop
-          sudo docker system prune -f
           touch .env
           echo DB_ENGINE=${{ secrets.DB_ENGINE }} >> .env
           echo DB_NAME=${{ secrets.DB_NAME }} >> .env
