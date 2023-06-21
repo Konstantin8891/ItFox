@@ -82,6 +82,68 @@ Body:
 
 ### Постим новость
 
- Требуется авторизация
+Требуется авторизация по токену Bearer {token}
 
-POST 
+POST http://konstantin05.ddns.net/news/
+
+Body:
+
+{
+
+    "title": "Вторая новость",
+    
+    "text": "Текст"
+    
+}
+
+Ответ:
+
+{
+
+    "id": 3,
+    
+    "title": "Вторая новость",
+    
+    "text": "Текст",
+    
+    "author": 1,
+    
+    "likes": 0
+    
+}
+
+GET http://konstantin05.ddns.net/news/
+
+Ответ поддерживает пагинацию (6 ответов на страницу):
+
+{
+    "count": 3,
+    "next": null,
+    "previous": null,
+    "results": [
+        {
+            "id": 1,
+            "title": "1 новость",
+            "text": "Текст",
+            "author": 1,
+            "likes": 0,
+            "comments": []
+        },
+        {
+            "id": 2,
+            "title": "Первая новость",
+            "text": "Текст",
+            "author": 1,
+            "likes": 0,
+            "comments": []
+        },
+        {
+            "id": 3,
+            "title": "Вторая новость",
+            "text": "Текст",
+            "author": 1,
+            "likes": 0,
+            "comments": []
+        }
+    ]
+}
